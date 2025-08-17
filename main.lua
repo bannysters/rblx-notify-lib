@@ -1,7 +1,13 @@
 local NotificationLibrary = {}
 
 function NotificationLibrary:Notify(notificationType, message, duration)
-    print(string.format("9AUTH NOTIFICATION: [%s] - %s", notificationType, message))
+    local output = string.format("%s", message)
+
+    if notificationType:lower() == "success" then
+        print("\27[32m" .. output .. "\27[0m")
+    else
+        print(output)
+    end
 end
 
 return NotificationLibrary
